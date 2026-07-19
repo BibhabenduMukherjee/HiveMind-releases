@@ -14,7 +14,7 @@ curl -fsSL https://raw.githubusercontent.com/BibhabenduMukherjee/HiveMind-releas
 
 This detects your OS/architecture, downloads the matching binary from the
 [latest release](https://github.com/BibhabenduMukherjee/HiveMind-releases/releases/latest),
-and installs it to `~/.local/bin` (override with `HARNESS_INSTALL_DIR`).
+and installs it to `~/.local/bin` (override with `HIVEMIND_INSTALL_DIR`).
 
 Or download a binary directly from the
 [releases page](https://github.com/BibhabenduMukherjee/HiveMind-releases/releases)
@@ -26,15 +26,15 @@ Windows (x86_64).
 ```sh
 export DEEPSEEK_API_KEY=sk-...
 
-harness                              # interactive REPL, starts on Flash
-harness -p "summarize src/main.rs"   # headless one-shot
-harness --tier pro                   # start on the stronger tier
+hivemind activate                              # interactive REPL, starts on Flash
+hivemind activate -p "summarize src/main.rs"   # headless one-shot
+hivemind activate --tier pro                   # start on the stronger tier
 ```
 
 ## Configuration
 
 No config file is required. To customize models, thresholds, or a proxy
-`base_url`, create `~/.config/harness/config.toml`:
+`base_url`, create `~/.config/hivemind/config.toml`:
 
 ```toml
 [deepseek]
@@ -53,11 +53,13 @@ escalate_after_repeats = 2
 
 ## Flags
 
+All of these are flags on `hivemind activate`, e.g. `hivemind activate --tier pro`.
+
 | Flag | Meaning |
 |---|---|
 | `-p, --prompt` | Run one prompt headlessly (auto-approves shell), then exit. |
 | `--workdir` | Workspace root. Default `.`. |
-| `--config` | Config file path. Default `~/.config/harness/config.toml`. |
+| `--config` | Config file path. Default `~/.config/hivemind/config.toml`. |
 | `--tier` | Start on `flash` (default) or `pro`. |
 | `--api-key` / `--base-url` | Override resolved endpoint. |
 | `--yolo` | Auto-approve all shell commands. Off by default. |

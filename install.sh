@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-# Installs the latest `harness` release binary for this machine.
+# Installs the latest `hivemind` release binary for this machine.
 #
 #   curl -fsSL https://raw.githubusercontent.com/BibhabenduMukherjee/HiveMind-releases/main/install.sh | bash
 #
-# Override install location with HARNESS_INSTALL_DIR (default: ~/.local/bin).
+# Override install location with HIVEMIND_INSTALL_DIR (default: ~/.local/bin).
 set -euo pipefail
 
 REPO="BibhabenduMukherjee/HiveMind-releases"
-BIN_NAME="harness"
-INSTALL_DIR="${HARNESS_INSTALL_DIR:-$HOME/.local/bin}"
+BIN_NAME="hivemind"
+INSTALL_DIR="${HIVEMIND_INSTALL_DIR:-$HOME/.local/bin}"
 
 # Global (not `local`) on purpose: a `local` var set inside main() goes out
 # of scope the moment main() returns, and this EXIT trap fires *after* that
@@ -79,7 +79,7 @@ main() {
   echo
   echo "Next:"
   echo "  export DEEPSEEK_API_KEY=sk-..."
-  echo "  $BIN_NAME"
+  echo "  $BIN_NAME activate"
 }
 
 main "$@"
