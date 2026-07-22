@@ -1,11 +1,11 @@
 # HiveMind
 
-A fast, cost-optimized coding agent for DeepSeek. This repo distributes
-pre-built binaries only — there's no source here, and none is required to
-install or run it.
+A fast, cost-optimized AI coding agent. This repo distributes pre-built
+binaries only — there's no source here, and none is required to install or
+run it.
 
-Sign in and pay as you go with no DeepSeek account of your own, or bring
-your own `$DEEPSEEK_API_KEY` — see [Run](#run).
+Sign in and pay as you go with no account of your own to manage, or bring
+your own HiveMind API key — see [Run](#run).
 
 ## Install
 
@@ -24,7 +24,7 @@ Windows (x86_64).
 
 ## Run
 
-No DeepSeek account? Sign in with Google and pay as you go — no API key to manage:
+No account of your own? Sign in with Google and pay as you go:
 
 ```sh
 hivemind auth login      # prints a code + URL, approve it in your browser
@@ -34,17 +34,17 @@ hivemind auth logout     # remove the stored credential
 hivemind activate                              # interactive REPL, starts on Flash
 ```
 
-Or bring your own DeepSeek key:
+Or bring your own HiveMind API key:
 
 ```sh
-export DEEPSEEK_API_KEY=sk-...
+export HIVEMIND_API_KEY=...
 
 hivemind activate                              # interactive REPL, starts on Flash
 hivemind activate -p "summarize src/main.rs"   # headless one-shot
 hivemind activate --tier pro                   # start on the stronger tier
 ```
 
-If both are set, an explicit key (flag, config file, or `$DEEPSEEK_API_KEY`) always
+If both are set, an explicit key (flag, config file, or `$HIVEMIND_API_KEY`) always
 wins over a signed-in hosted session.
 
 ## Configuration
@@ -53,11 +53,9 @@ No config file is required. To customize models, thresholds, or a proxy
 `base_url`, create `~/.config/hivemind/config.toml`:
 
 ```toml
-[deepseek]
-# api_key = "sk-..."        # prefer $DEEPSEEK_API_KEY
-# base_url = "https://api.deepseek.com"
-# flash_model = "deepseek-v4-flash"
-# pro_model = "deepseek-v4-pro"
+[model]
+# api_key = "..."           # prefer $HIVEMIND_API_KEY
+# base_url = "..."          # only needed to point at a proxy or mock
 
 [agent]
 default_tier = "flash"              # "flash" | "pro"
@@ -79,7 +77,7 @@ All of these are flags on `hivemind activate`, e.g. `hivemind activate --tier pr
 | `--tier` | Start on `flash` (default) or `pro`. |
 | `--api-key` / `--base-url` | Override resolved endpoint. |
 | `--yolo` | Auto-approve all shell commands. Off by default. |
-| `--show-reasoning` | Print streamed chain-of-thought (deepseek-v4-pro). |
+| `--show-reasoning` | Print streamed chain-of-thought (Pro tier only). |
 
 ## Tools
 

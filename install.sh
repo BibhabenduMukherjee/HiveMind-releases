@@ -78,8 +78,10 @@ main() {
 
   echo
   echo "Next:"
-  echo "  export DEEPSEEK_API_KEY=sk-..."
+  echo "  $BIN_NAME auth login    # sign in and pay as you go, no key needed"
   echo "  $BIN_NAME activate"
+  echo
+  echo "Or bring your own key: export HIVEMIND_API_KEY=... && $BIN_NAME activate"
 }
 
 main "$@"
