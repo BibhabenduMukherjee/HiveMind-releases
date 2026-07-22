@@ -4,7 +4,8 @@ A fast, cost-optimized coding agent for DeepSeek. This repo distributes
 pre-built binaries only — there's no source here, and none is required to
 install or run it.
 
-Free while pricing is undecided.
+Sign in and pay as you go with no DeepSeek account of your own, or bring
+your own `$DEEPSEEK_API_KEY` — see [Run](#run).
 
 ## Install
 
@@ -23,6 +24,18 @@ Windows (x86_64).
 
 ## Run
 
+No DeepSeek account? Sign in with Google and pay as you go — no API key to manage:
+
+```sh
+hivemind auth login      # prints a code + URL, approve it in your browser
+hivemind auth status     # check who's signed in and your balance
+hivemind auth logout     # remove the stored credential
+
+hivemind activate                              # interactive REPL, starts on Flash
+```
+
+Or bring your own DeepSeek key:
+
 ```sh
 export DEEPSEEK_API_KEY=sk-...
 
@@ -30,6 +43,9 @@ hivemind activate                              # interactive REPL, starts on Fla
 hivemind activate -p "summarize src/main.rs"   # headless one-shot
 hivemind activate --tier pro                   # start on the stronger tier
 ```
+
+If both are set, an explicit key (flag, config file, or `$DEEPSEEK_API_KEY`) always
+wins over a signed-in hosted session.
 
 ## Configuration
 
@@ -67,9 +83,10 @@ All of these are flags on `hivemind activate`, e.g. `hivemind activate --tier pr
 
 ## Tools
 
-Four built-ins, all workspace-confined (`--workdir`, default `.`):
-`read_file`, `write_file`, `list_dir`, and `run_shell` (interactive `[y/N]`
-approval by default; `--yolo` or headless `-p` mode auto-approves).
+Seven built-ins, all workspace-confined (`--workdir`, default `.`):
+`read_file`, `write_file`, `edit_file`, `list_dir`, `search`,
+`semantic_search`, and `run_shell` (interactive `[y/N]` approval by
+default; `--yolo` or headless `-p` mode auto-approves).
 
 ## License
 
