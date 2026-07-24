@@ -9,18 +9,37 @@ your own HiveMind API key — see [Run](#run).
 
 ## Install
 
+**macOS / Linux:**
+
 ```sh
 curl -fsSL https://raw.githubusercontent.com/BibhabenduMukherjee/HiveMind-releases/main/install.sh | bash
 ```
 
-This detects your OS/architecture, downloads the matching binary from the
-[latest release](https://github.com/BibhabenduMukherjee/HiveMind-releases/releases/latest),
-and installs it to `~/.local/bin` (override with `HIVEMIND_INSTALL_DIR`).
+Installs to `~/.local/bin` (override with `HIVEMIND_INSTALL_DIR`).
+
+**Windows (PowerShell):**
+
+```powershell
+irm https://raw.githubusercontent.com/BibhabenduMukherjee/HiveMind-releases/main/install.ps1 | iex
+```
+
+Installs to `%LOCALAPPDATA%\hivemind` (override with `$env:HIVEMIND_INSTALL_DIR`) and
+adds it to your user `PATH` — open a **new** PowerShell window afterward for that to
+take effect.
+
+Both scripts detect your OS/architecture and download the matching binary from the
+[latest release](https://github.com/BibhabenduMukherjee/HiveMind-releases/releases/latest).
 
 Or download a binary directly from the
 [releases page](https://github.com/BibhabenduMukherjee/HiveMind-releases/releases)
 for your platform: macOS (Intel/Apple Silicon), Linux (x86_64/aarch64), or
 Windows (x86_64).
+
+> **`hivemind` is a command-line tool, not a desktop app.** Run it from a
+> terminal (PowerShell on Windows, Terminal on macOS/Linux) — double-clicking
+> `hivemind.exe`/`hivemind` in a file browser opens a console window and closes
+> it again the instant the program exits, which looks like a crash but isn't
+> one.
 
 ## Run
 
